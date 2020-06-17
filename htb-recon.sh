@@ -35,7 +35,7 @@ then
   fi
 
   ## Running Commands
-  ## nmap -sC -sV -oN recon/initial_nmap.txt -v -Pn $target 
+  nmap -sC -sV -oN recon/initial_nmap.txt -v -Pn $target 
   sudo masscan -p 1-65535,U:1-65535 -e $interface -oL recon/allports.txt --rate=1000 -vv -Pn $target
   gobuster dir -u http://$target -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o recon/dirscan.txt
   ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee recon/ffuf.txt 
@@ -48,6 +48,6 @@ then
 
 else
   echo "Usage: ./htb-recon.sh <IP> <Name_of_Machine> <OS> "
-  echo "Example: ./htb-recon.sh 10.10.10.180 ServMon Windows"
+  echo "Example: ./workspace.sh 10.10.10.180 ServMon Windows"
 
 fi
