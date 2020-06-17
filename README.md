@@ -14,8 +14,7 @@
 * Creates a workspace in your home dir.
 * Creates different folders to keep things organized.
 * Creates a Notes.md file to keep your notes.
-* exports the ip to a env variable so you don't have to type it again and again
-  , you can access it by `echo $target`
+* Exports the ip to a env variable so you don't have to type it again and again. You can access it by `echo $target`
 
 ## Contribute
 * Feel free to contribute to this repo.
