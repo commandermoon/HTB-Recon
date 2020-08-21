@@ -46,7 +46,7 @@ then
   echo "[*] Nmap complete. Time to bust"
   gobuster dir -u http://$target -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o ~/HackSpace/$name/recon/dirscan.txt
   echo "[*] Bust finished. It's fuzz o' clock"
-  ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee recon/ffuf.txt
+  ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee ~/HackSpace/$name/recon/ffuf.txt
   echo "[*] It's getting late. Time for mass"
   sudo masscan -p 1-65535 -e $interface -oL ~/HackSpace/$name/recon/allports.txt --rate=1000 -Pn $target -o ~/HackSpace/$name/recon/massscan.txt   
   echo "[*] Mass is over. Go in peace"
