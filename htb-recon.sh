@@ -48,7 +48,7 @@ then
   echo "[*] Bust finished. It's fuzz o' clock"
   ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee ~/HackSpace/$name/recon/ffuf.txt
   echo "[*] It's getting late. Time for mass"
-  sudo masscan -p 1-65535 -e $interface -oL ~/HackSpace/$name/recon/allports.txt --rate=1000 -Pn $target -oG ~/HackSpace/$name/recon/massscan.txt   
+  sudo masscan -p 1-65535 -e $interface -oL ~/HackSpace/$name/recon/masscan.txt --rate=1000 -Pn $target  
   echo "[*] Mass is over. Go in peace"
 
   echo "# Info" >> Notes.md 
