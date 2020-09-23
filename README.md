@@ -1,7 +1,7 @@
 # HTB-Recon
 
 ## Requirements
-* Masscan
+* Nikto
 * Nmap
 * Gobuster
 * ffuf
