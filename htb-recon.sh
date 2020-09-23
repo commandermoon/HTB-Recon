@@ -49,7 +49,7 @@ then
   ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee ~/HackSpace/$name/recon/ffuf.txt
   echo "[*] It's getting late. Time for nik"
   nikto -h $target -output ~/HackSpace/$name/recon/nikto.txt
-  echo "[*] Mass is over. Go in peace"
+  echo "[*] Nik break is over"
 
   echo "# Info" >> Notes.md 
   echo "* Name: $name" >> Notes.md 
