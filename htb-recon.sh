@@ -47,8 +47,8 @@ then
   gobuster dir -u http://$target -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o ~/HackSpace/$name/recon/dirscan.txt
   echo "[*] Bust finished. It's fuzz o' clock"
   ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee ~/HackSpace/$name/recon/ffuf.txt
-  echo "[*] It's getting late. Time for mass"
-  sudo masscan -p 1-65535 -e $interface -oL ~/HackSpace/$name/recon/masscan.txt --rate=1000 -Pn $target  
+  echo "[*] It's getting late. Time for nik"
+  nikto -h $target -output ~/HackSpace/$name/recon/nikto.txt
   echo "[*] Mass is over. Go in peace"
 
   echo "# Info" >> Notes.md 
