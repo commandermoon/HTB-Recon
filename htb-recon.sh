@@ -42,7 +42,7 @@ then
   ports=$(cat ~/HackSpace/$name/recon/openports.txt)
   ports=$(echo $ports | sed -e "s/ /,/g")
   echo "[*] Starting aggressive nmap on $target"
-  nmap $target -p $ports -A -T4 -oN recon/initial_nmap.txt -Pn > ~/HackSpace/$name/recon/fullnmap.txt
+  nmap $target -p $ports -A -T4 -oN recon/fullnmap.txt -Pn
   echo "[*] Nmap complete. Time to bust"
   gobuster dir -u http://$target -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o ~/HackSpace/$name/recon/dirscan.txt
   echo "[*] Bust finished. It's fuzz o' clock"
