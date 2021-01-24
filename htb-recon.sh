@@ -43,10 +43,10 @@ then
   ports=$(echo $ports | sed -e "s/ /,/g")
   echo "[*] Starting aggressive nmap on $target"
   nmap $target -p $ports -A -T4 -oN recon/fullnmap.txt -Pn
-  echo "[*] Nmap complete. Time to bust"
-  gobuster dir -u http://$target -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o ~/HackSpace/$name/recon/dirscan.txt
+  echo "[*] Nmap complete. Time to bust subs"
+  gobuster dns -u http://$target -w /opt/SecLists/Discovery/DNS/fierce-hostlist.txt -o ~/HackSpace/$name/recon/subdomains.txt
   echo "[*] Bust finished. It's fuzz o' clock"
-  ffuf -w /usr/share/wordlists/dirb/big.txt -u http://$target/FUZZ | tee ~/HackSpace/$name/recon/ffuf.txt
+  ffuf -w -u /opt/SecLists/Discovery/Web-Content/raft-small-directories-lowercase.txt http://$target/FUZZ | tee ~/HackSpace/$name/recon/dirs.txt
   echo "[*] It's getting late. Time for nik"
   nikto -h $target -output ~/HackSpace/$name/recon/nikto.txt
   echo "[*] Nik break is over"
