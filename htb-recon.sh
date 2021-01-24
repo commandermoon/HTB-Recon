@@ -36,7 +36,7 @@ then
 
   ## Running Commands
   echo "[*] Starting scans on interface $interface"
-  sudo nmap $target -p- -T4 -Pn -sS | grep "open" | cut -d "/" -f 1 > ~/HackSpace/$name/recon/openports.txt
+  sudo nmap $target -p- -T4 -Pn -sC -sV -oA | grep "open" | cut -d "/" -f 1 > ~/HackSpace/$name/recon/openports.txt
   num_ports=$(cat ~/HackSpace/$name/recon/openports.txt | wc -l)
   echo "[*] $num_ports open tcp ports detected. Scanning now" 
   ports=$(cat ~/HackSpace/$name/recon/openports.txt)
