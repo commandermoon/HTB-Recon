@@ -44,9 +44,9 @@ then
   echo "[*] Starting aggressive nmap on $target"
   nmap $target -p $ports -A -T4 -oN recon/fullnmap.txt -Pn
   echo "[*] Nmap complete. Time to bust subs"
-  gobuster vhost -u http://$target -w /opt/SecLists/Discovery/DNS/fierce-hostlist.txt -o ~/HackSpace/$name/recon/subdomains.txt
+  gobuster vhost -u http://$target -w /opt/SecLists/Discovery/Web-Content/raft-small-words.txt -o ~/HackSpace/$name/recon/subdomains.txt
   echo "[*] Bust finished. It's fuzz o' clock"
-  ffuf -w -u /opt/SecLists/Discovery/Web-Content/raft-small-words.txt http://$target/FUZZ | tee ~/HackSpace/$name/recon/dirs.txt
+  ffuf -w /opt/SecLists/Discovery/Web-Content/raft-small-words.txt -u http://$target/FUZZ | tee ~/HackSpace/$name/recon/dirs.txt
   echo "[*] It's getting late. Time for nik"
   nikto -h $target -output ~/HackSpace/$name/recon/nikto.txt
   echo "[*] Nik break is over"
